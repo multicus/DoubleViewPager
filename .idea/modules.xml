@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-DoubleViewPager.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-DoubleViewPager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DoubleViewPager/DoubleViewPager-DoubleViewPager.iml" filepath="$PROJECT_DIR$/DoubleViewPager/DoubleViewPager-DoubleViewPager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DoubleViewPagerSample/DoubleViewPagerSample.iml" filepath="$PROJECT_DIR$/DoubleViewPagerSample/DoubleViewPagerSample.iml" />
+    </modules>
+  </component>
+</project>

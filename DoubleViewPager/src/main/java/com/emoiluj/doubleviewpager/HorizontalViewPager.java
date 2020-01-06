@@ -31,18 +31,19 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.support.v4.os.ParcelableCompat;
-import android.support.v4.os.ParcelableCompatCreatorCallbacks;
-import android.support.v4.view.AccessibilityDelegateCompat;
-import android.support.v4.view.KeyEventCompat;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewConfigurationCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.widget.EdgeEffectCompat;
+import androidx.core.os.ParcelableCompat;
+import androidx.core.os.ParcelableCompatCreatorCallbacks;
+import androidx.core.view.AccessibilityDelegateCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.core.view.VelocityTrackerCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.ViewConfigurationCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.widget.EdgeEffectCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
@@ -73,8 +74,8 @@ import android.widget.Scroller;
  * which is a convenient way to supply and manage the lifecycle of each page.
  * There are standard adapters implemented for using fragments with the ViewPager,
  * which cover the most common use cases.  These are
- * {@link android.support.v4.app.FragmentPagerAdapter},
- * {@link android.support.v4.app.FragmentStatePagerAdapter},
+ * {@link FragmentPagerAdapter},
+ * {@link FragmentStatePagerAdapter},
  * {@link android.support.v13.app.FragmentPagerAdapter}, and
  * {@link android.support.v13.app.FragmentStatePagerAdapter}; each of these
  * classes have simple code showing how to build a full user interface
@@ -1622,6 +1623,8 @@ public class HorizontalViewPager extends ViewGroup {
                 final float yDiff = Math.abs(y - mLastMotionY);
                 if (DEBUG) Log.v(TAG, "Moved x to " + x + "," + y + " diff=" + xDiff + "," + yDiff);
 
+                // I don't want the horizontal scrolling to be handled by any nested view
+                /*
                 if (dx != 0 && !isGutterDrag(mLastMotionX, dx) &&
                         canScroll(this, false, (int) dx, (int) x, (int) y)) {
                     // Nested view has scrollable area under this point. Let it be handled there.
@@ -1630,6 +1633,7 @@ public class HorizontalViewPager extends ViewGroup {
                     mIsUnableToDrag = true;
                     return false;
                 }
+                 */
                 if (xDiff > mTouchSlop && xDiff > yDiff) {
                     if (DEBUG) Log.v(TAG, "Starting drag!");
                     mIsBeingDragged = true;
@@ -2282,9 +2286,9 @@ public class HorizontalViewPager extends ViewGroup {
                     if (Build.VERSION.SDK_INT >= 11) {
                         // The focus finder had a bug handling FOCUS_FORWARD and FOCUS_BACKWARD
                         // before Android 3.0. Ignore the tab key on those devices.
-                        if (KeyEventCompat.hasNoModifiers(event)) {
+                        if (event.hasNoModifiers()) {
                             handled = arrowScroll(FOCUS_FORWARD);
-                        } else if (KeyEventCompat.hasModifiers(event, KeyEvent.META_SHIFT_ON)) {
+                        } else if (event.hasModifiers(KeyEvent.META_SHIFT_ON)) {
                             handled = arrowScroll(FOCUS_BACKWARD);
                         }
                     }

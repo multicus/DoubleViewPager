@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "com.emoiluj.doubleviewpagersample"
-        minSdkVersion 8
-        targetSdkVersion 21
+        minSdkVersion 14
+        targetSdkVersion 29
         versionCode 3
         versionName "1.2"
     }
@@ -20,5 +19,6 @@ android {
 }
 
 dependencies {
-    compile project(':DoubleViewPager')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(':DoubleViewPager')
 }

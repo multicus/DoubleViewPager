@@ -2,7 +2,7 @@ package com.emoiluj.doubleviewpagersample;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.view.PagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;

@@ -2,8 +2,8 @@ package com.emoiluj.doubleviewpagersample;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
 import android.view.Window;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.emoiluj.doubleviewpager.DoubleViewPager;
 import com.emoiluj.doubleviewpager.DoubleViewPagerAdapter;

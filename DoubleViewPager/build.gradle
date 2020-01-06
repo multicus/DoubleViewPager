@@ -8,13 +8,12 @@ apply plugin: 'com.android.library'
 //version = "1.0.1"
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 29
     resourcePrefix "doubleviewpager__" //TO GENERATE AAR STEP1
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -90,8 +89,9 @@ android {
 //}
 
 dependencies {
-    compile 'com.android.support:support-v4:22.+'
-    compile fileTree(include: '*.jar', dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation fileTree(include: '*.jar', dir: 'libs')
 }
 
 //TO UPLOAD TO BINTRAY
